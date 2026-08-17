@@ -1,0 +1,4 @@
+Model,AUC
+Baseline,0.749
+Simple Graph,0.739
+Rich Graph,0.788

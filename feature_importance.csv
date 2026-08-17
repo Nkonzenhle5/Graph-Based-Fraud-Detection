@@ -1,0 +1,10 @@
+Feature,Importance
+TransactionAmt,0.08027766
+card1,0.08251228
+card2,0.08257898
+card3,0.4488745
+card5,0.08748803
+DeviceInfo,0.04694066
+addr1,0.0760797
+pagerank2,0.0
+degree,0.09524815
