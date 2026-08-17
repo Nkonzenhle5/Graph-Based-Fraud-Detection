@@ -1,9 +1,7 @@
 # Graph-Based Fraud Detection
 
-> Traditional machine learning learns from rows.
->
-> Network science learns from relationships.
->
+> Traditional machine learning learns from rows.  
+> Network science learns from relationships.  
 > This project explores whether relationships are the missing ingredient in fraud detection.
 
 ---
@@ -14,15 +12,24 @@
 
 MIS Specialist | Data Analyst | Applied Statistics & Data Science Enthusiast
 
+**Areas of Interest**
+
+- Fraud Analytics
+- Network Science
+- Machine Learning
+- Graph Machine Learning
+- Explainable AI
+- Applied Statistics
+
 ---
 
 ## Project Overview
 
-Fraud detection is traditionally approached as a machine learning classification problem where each transaction is treated as an independent observation. However, fraudulent activities often involve interconnected entities such as cards, devices, addresses, and accounts that create hidden network structures.
+Fraud detection is typically approached as a machine learning classification problem where each transaction is treated as an independent observation.
 
-This project investigates whether graph-based feature engineering can improve fraud detection performance by incorporating insights from network science into traditional machine learning models.
+However, fraudulent activities often involve interconnected entities such as cards, devices, addresses, and accounts that form hidden networks.
 
-The goal is to move beyond transaction-level analysis and explore whether transaction relationships contain predictive information that standard tabular approaches may miss.
+This project investigates whether graph-based feature engineering can improve fraud detection performance by incorporating insights from network science into traditional machine learning models. Rather than focusing only on transaction attributes, the project explores whether transaction relationships contain predictive information that traditional tabular approaches may overlook.
 
 ---
 
@@ -36,19 +43,17 @@ The goal is to move beyond transaction-level analysis and explore whether transa
 
 This project uses the **IEEE-CIS Fraud Detection Dataset**, originally released as part of the IEEE Computational Intelligence Society (CIS) Fraud Detection Competition on Kaggle.
 
-Due to dataset size limitations and dataset distribution policies, the raw training and testing datasets are not included in this repository.
+The dataset contains transaction and identity information designed to represent a real-world fraud detection scenario.
 
-Dataset Source:
+### Important Note
+
+The raw IEEE-CIS Fraud Detection dataset is **not included** in this repository due to dataset size constraints and distribution policies.
+
+The dataset can be downloaded directly from Kaggle:
 
 https://www.kaggle.com/competitions/ieee-fraud-detection
 
-Dataset Characteristics:
-
-- Real-world fraud detection problem
-- Highly imbalanced target variable
-- Transaction and identity information
-- Hundreds of engineered features
-- Complex relationships between entities
+Users wishing to reproduce this work should download the dataset separately and run the provided notebook locally.
 
 ---
 
@@ -56,9 +61,9 @@ Dataset Characteristics:
 
 ### Baseline Model
 
-The baseline model was developed using traditional transaction-level features and trained using XGBoost.
+The baseline fraud detection model was developed using transaction-level features and trained using XGBoost.
 
-Features included:
+Example feature categories:
 
 - Transaction Amount
 - Card Information
@@ -68,51 +73,54 @@ Features included:
 
 ### Graph Construction
 
-Transaction entities were transformed into networks where relationships between cards, devices, and other identifiers could be analyzed.
+Transaction entities were transformed into network structures.
 
-The project explored graph structures connecting entities such as:
+Relationships were created between entities such as:
 
-- Card IDs
-- Device IDs
-- Address Information
+- Cards
+- Devices
+- Addresses
+
+The resulting graphs were analyzed to capture the structure and connectivity of transaction ecosystems.
 
 ---
 
-### Graph Features
+### Graph-Based Features
 
-Several network-based measures were extracted and incorporated into machine learning models:
+Several graph-theoretic measures were extracted and incorporated into machine learning models:
 
 - Degree Centrality
 - PageRank
 - Authority Scores
 - Hub Scores
 
-These graph-derived features were then combined with traditional fraud detection variables.
+These network-derived features were combined with traditional fraud detection variables and used for model training.
 
 ---
 
 ## Results
 
-The study compared baseline machine learning models against graph-enhanced models.
+The project compared traditional machine learning models against graph-enhanced models.
 
-Key findings include:
+### Key Findings
 
-- Graph features do not automatically improve model performance.
-- Network design plays a critical role in predictive success.
-- Richer transaction networks provided more useful information than simpler network representations.
-- Relationships between entities can reveal hidden fraud structures that may not be visible in transaction-level features alone.
+- Graph features do not automatically improve fraud detection.
+- Network design plays a critical role in model performance.
+- Richer network structures provided stronger predictive signals.
+- Relationships between entities may reveal hidden fraud patterns not visible in transaction-level data alone.
+- Network science offers a promising complementary perspective to traditional fraud analytics.
 
 ---
 
 ## Future Research Directions
 
-This project is intended as an exploration rather than a final solution.
+This project represents an exploratory step toward graph-based fraud detection.
 
 Future work may include:
 
 ### Graph Neural Networks (GNNs)
 
-Potential architectures:
+Potential models:
 
 - Graph Convolutional Networks (GCN)
 - GraphSAGE
@@ -120,23 +128,23 @@ Potential architectures:
 
 ### Community Detection
 
-Exploring whether fraud rings can be identified through:
+Exploring fraud rings using:
 
 - Louvain Communities
-- Leiden Clustering
+- Leiden Algorithm
 - Spectral Clustering
 
-### Temporal Fraud Networks
+### Temporal Network Analysis
 
 Investigating:
 
-- Evolution of fraud networks over time
+- How fraud networks evolve over time
 - Emerging fraud communities
-- Dynamic graph structures
+- Dynamic graph behavior
 
 ### Multiplex Networks
 
-Building multiple transaction relationship layers such as:
+Building multiple relationship layers such as:
 
 - Card ↔ Device
 - Card ↔ Address
@@ -151,19 +159,73 @@ This project was motivated by several curiosity-driven questions:
 
 - Can a fraudster be identified before committing fraud because of their network position?
 - Do fraud networks behave similarly to social networks?
-- Are there "super-spreader" devices responsible for a significant portion of fraudulent activity?
-- Could fraud detection be approached as a network epidemiology problem?
+- Are there "super-spreader" devices responsible for a disproportionate amount of fraudulent activity?
+- Could fraud detection be viewed as a network epidemiology problem?
 - What hidden patterns exist in transaction data that traditional machine learning models cannot see?
-- Can graph theory eventually become a core component of fraud detection systems?
+- Can graph theory become a core component of future fraud detection systems?
 
 ---
 
-## Repository Structure
+## Repository Contents
 
 ```text
 Graph-Based-Fraud-Detection/
 │
 ├── README.md
 ├── LICENSE
-├── graph_fraud_detection.ipynb
-├── model_results.
+├── Untitled.ipynb
+├── feature_importance.csv
+└── model_results.csv
+```
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- NetworkX
+- XGBoost
+- Scikit-Learn
+- Jupyter Notebook
+
+---
+
+## Reproducibility
+
+To reproduce the analysis:
+
+1. Download the IEEE-CIS Fraud Detection dataset from Kaggle.
+2. Open the notebook in Jupyter Notebook or JupyterLab.
+3. Update local file paths if necessary.
+4. Run the notebook sequentially.
+5. Review the generated model results and feature importance outputs.
+
+---
+
+## Citation
+
+If this project contributes to your research, report, presentation, or derivative work, please cite:
+
+> Khumalo, N. (2026). *Graph-Based Fraud Detection: Exploring Network Intelligence Beyond Traditional Machine Learning*. GitHub Repository.
+
+---
+
+## Acknowledgements
+
+- IEEE Computational Intelligence Society (IEEE-CIS)
+- Kaggle
+- Open-source Python ecosystem
+- NetworkX
+- XGBoost
+
+---
+
+## Final Thought
+
+> Most machine learning models learn from observations.
+>
+> Graphs learn from relationships.
+>
+> This project explores whether those relationships can provide a deeper understanding of fraudulent behavior.
